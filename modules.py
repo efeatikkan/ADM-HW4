@@ -146,7 +146,7 @@ def visualize_histogram(values_list, title):
 def shortest_path(graph, source, target):
     '''This function takes in input a graph, a source node, a target node and returns the sum of the weigths that
     minimizes the path from the source node to the target node'''
-    #since the graph is undirected it is convenient to begin from the node that has the minimum degree
+    #since the graph is undirected it is better to start from the node that has the minimum degree
     #between the source node and the target node
     if len(graph[target]) < len(graph[source]):
         tmp = source
