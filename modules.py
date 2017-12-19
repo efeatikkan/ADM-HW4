@@ -3,7 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import heapq
 
-'''FUNCTIONS FOR PROBLEM 1'''
+'''---FUNCTIONS FOR PROBLEM 1---'''
 
 def _open_file(filename):
     return json.loads(open(filename, 'r').read())
@@ -55,7 +55,7 @@ def create_authors_graph(filename):
     print('Graph created!')
     return g
 
-'''FUNCTIONS FOR PROBLEM 2'''
+'''---FUNCTIONS FOR PROBLEM 2---'''
 
 def create_conferences_dictionary(filename):
     '''This function takes in input a JSON file (as string) and returns the dictionary of conferences with:
@@ -125,10 +125,7 @@ def visualize_graph(graph, node_labels = True, edge_labels = True):
     '''This function draws the graph'''
     plt.clf()
     pos = nx.spring_layout(graph)
-    if node_labels:
-        nx.draw(graph, pos, with_labels = True)
-    else:
-        nx.draw(graph, pos)
+    nx.draw(graph, pos, with_labels = node_labels)
     if edge_labels:
         nx.draw_networkx_edge_labels(graph, pos, edge_labels = nx.get_edge_attributes(graph, 'weight'))
     plt.show()
@@ -141,24 +138,24 @@ def visualize_histogram(values_list, title):
     plt.title(title)
     plt.show()
 
-'''FUNCTIONS FOR PROBLEM 3'''
+'''---FUNCTIONS FOR PROBLEM 3---'''
 
 def shortest_path(graph, source, target):
     '''This function takes in input a graph, a source node, a target node and returns the sum of the weigths that
     minimizes the path from the source node to the target node'''
-    #since the graph is undirected it is better to start from the node that has the minimum degree
-    #between the source node and the target node
+    # since the graph is undirected it is better to start from the node that has the minimum degree
+    # between the source node and the target node
     if len(graph[target]) < len(graph[source]):
         tmp = source
         source = target
         target = tmp
-    #the heap of the distances contains the pairs (node_distance, node)
+    # the heap of the distances contains the pairs (node_distance, node)
     distance_heap = []
     visited = {}
     heapq.heappush(distance_heap, (0, source))
     while len(distance_heap) > 0:
         node_distance, node = heapq.heappop(distance_heap)
-        #if the target node has been found then return his minimum distance
+        # if the target node has been found then return his minimum distance
         if node == target:
             return node_distance
         try:
@@ -174,3 +171,38 @@ def shortest_path(graph, source, target):
                 distance = node_distance + graph[node][adjacent_node]['weight']
                 heapq.heappush(distance_heap, (distance, adjacent_node))
     print('There is not a path from', source, 'to', target)
+    return float('inf')
+
+def group_number(graph, source, nodes_set):
+    to_find = {}
+    distance = {}
+    for node in nodes_set:
+        to_find[node] = True
+        distance[node] = float('inf')
+    distance_heap = []
+    visited = {}
+    heapq.heappush(distance_heap, (0, source))
+    while len(distance_heap) > 0:
+        node_distance, node = heapq.heappop(distance_heap)
+        try:
+            if to_find[node]:
+                distance[node] = node_distance
+                del to_find[node]
+                print('Found', node, node_distance)
+                if len(to_find) == 0:
+                    break
+        except:
+            pass
+        try:
+            if visited[node]:
+                continue
+        except:
+            visited[node] = True
+        for adjacent_node in graph[node]:
+            try:
+                if visited[adjacent_node]:
+                    continue
+            except:
+                dist = node_distance + graph[node][adjacent_node]['weight']
+                heapq.heappush(distance_heap, (dist, adjacent_node))
+    return distance
