@@ -173,36 +173,32 @@ def shortest_path(graph, source, target):
     print('There is not a path from', source, 'to', target)
     return float('inf')
 
-def group_number(graph, source, nodes_set):
-    to_find = {}
-    distance = {}
-    for node in nodes_set:
-        to_find[node] = True
-        distance[node] = float('inf')
-    distance_heap = []
-    visited = {}
-    heapq.heappush(distance_heap, (0, source))
-    while len(distance_heap) > 0:
-        node_distance, node = heapq.heappop(distance_heap)
-        try:
-            if to_find[node]:
-                distance[node] = node_distance
-                del to_find[node]
-                print('Found', node, node_distance)
-                if len(to_find) == 0:
-                    break
-        except:
-            pass
-        try:
-            if visited[node]:
-                continue
-        except:
-            visited[node] = True
-        for adjacent_node in graph[node]:
+def group_number(graph, nodes_set):
+    '''This function takes in input a graph, a set/list of nodes and returns the dictionary of the shortest paths
+    which contains all the nodes of the graph as keys and the shortest path from u to the other nodes of the graph
+    as values, for each u in nodes_set'''
+    shortest_path = {}
+    for node in graph.nodes():
+        shortest_path[node] = float('inf')
+    for root_node in nodes_set:
+        print('Updating shortest paths from node:', root_node)
+        distance_heap = []
+        visited = {}
+        heapq.heappush(distance_heap, (0, root_node))
+        while len(distance_heap) > 0:
+            node_distance, node = heapq.heappop(distance_heap)
             try:
-                if visited[adjacent_node]:
+                if visited[node]:
                     continue
             except:
-                dist = node_distance + graph[node][adjacent_node]['weight']
-                heapq.heappush(distance_heap, (dist, adjacent_node))
-    return distance
+                visited[node] = True
+            if node_distance < shortest_path[node]:
+                shortest_path[node] = node_distance
+                for adjacent_node in graph[node]:
+                    try:
+                        if visited[adjacent_node]:
+                            continue
+                    except:
+                        dist = node_distance + graph[node][adjacent_node]['weight']
+                        heapq.heappush(distance_heap, (dist, adjacent_node))
+    return shortest_path
