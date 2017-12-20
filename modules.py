@@ -125,19 +125,19 @@ def visualize_graph(graph, node_labels = True, edge_labels = True):
     '''This function draws the graph'''
     plt.clf()
     pos = nx.spring_layout(graph)
-    nx.draw(graph, pos, with_labels = node_labels)
-    if edge_labels:
-        nx.draw_networkx_edge_labels(graph, pos, edge_labels = nx.get_edge_attributes(graph, 'weight'))
+    nx.draw(graph, pos, with_labels = node_labels, node_size=100)
+    #if edge_labels:
+        #nx.draw_networkx_edge_labels(graph, pos, edge_labels = nx.get_edge_attributes(graph, 'weight'))
     plt.show()
 
 def visualize_histogram(values_list, title):
     '''This function draws the histogram'''
     plt.clf()
     plt.figure()
-    plt.hist(values_list)
+    plt.hist(values_list,bins=10, edgecolor='black', linewidth=1.2) 
     plt.title(title)
     plt.show()
-
+    
 '''---FUNCTIONS FOR PROBLEM 3---'''
 
 def shortest_path(graph, source, target):
