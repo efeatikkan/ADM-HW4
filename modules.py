@@ -196,6 +196,7 @@ def group_number(graph, nodes_set):
     '''This function takes in input a graph, a set/list of nodes and returns the dictionary of the shortest paths
     which contains all the nodes of the graph as keys and the shortest path from u to the other nodes of the graph
     as values, for each u in nodes_set'''
+    #shortest_path contains a pair (distance, nearest node)
     shortest_path = {}
     for node in graph.nodes():
         shortest_path[node] = (float('inf'), None)
