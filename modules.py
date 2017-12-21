@@ -137,9 +137,13 @@ def visualize_graph(graph, node_labels = True, edge_labels = True, root_node = N
             else: 
                 color_map.append('red')
                 size_map.append(70)
-    nx.draw(graph, pos, with_labels = node_labels, node_shape = '.', node_size = size_map, width=0.5, node_color = color_map)
+        nx.draw(graph, pos, with_labels = node_labels, node_shape = '.', node_size = size_map, width=0.2, node_color = color_map)
+    else:
+        nx.draw(graph, pos, with_labels = node_labels, node_shape = '.', node_size = 70, width=0.2)
     if edge_labels:
         nx.draw_networkx_edge_labels(graph, pos, edge_labels = nx.get_edge_attributes(graph, 'weight'))
+        
+        
     plt.show()
 
 def visualize_histogram(values_list, title):
