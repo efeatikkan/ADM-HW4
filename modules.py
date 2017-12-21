@@ -122,11 +122,22 @@ def graph_distance(graph, author_id, d):
                 continue
     return subgraph
 
-def visualize_graph(graph, node_labels = True, edge_labels = True):
+def visualize_graph(graph, node_labels = True, edge_labels = True, root_node = None):
     '''This function draws the graph'''
     plt.clf()
     pos = nx.spring_layout(graph)
-    nx.draw(graph, pos, with_labels = node_labels, node_shape = '.', node_size = 70, width=0.5)
+    plt.figure(figsize = (15,10))
+    if root_node:
+        color_map = []
+        size_map  = []
+        for node in graph:
+            if node == root_node :
+                color_map.append('yellow')
+                size_map.append(300)
+            else: 
+                color_map.append('red')
+                size_map.append(70)
+    nx.draw(graph, pos, with_labels = node_labels, node_shape = '.', node_size = size_map, width=0.5, node_color = color_map)
     if edge_labels:
         nx.draw_networkx_edge_labels(graph, pos, edge_labels = nx.get_edge_attributes(graph, 'weight'))
     plt.show()
