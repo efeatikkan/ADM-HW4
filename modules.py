@@ -95,6 +95,7 @@ def graph_distance(graph, author_id, d):
     level = 1
     visited = {author_id : True}
     while level <= d:
+        #the temporary queue (tmpq) contains all the nodes that are at level + 1
         tmpq = []
         while len(q) > 0:
             node = q.pop(0)
@@ -108,6 +109,7 @@ def graph_distance(graph, author_id, d):
                     visited[adjacent_node] = True
                     tmpq.append(adjacent_node)
                 subgraph.add_edge(node, adjacent_node, weight = graph[node][adjacent_node]['weight'])
+        #increment the level and update q with the values of tmpq
         level += 1
         q = tmpq
     #connect the frontier nodes
@@ -126,31 +128,29 @@ def visualize_graph(graph, node_labels = True, edge_labels = True, root_node = N
     '''This function draws the graph'''
     plt.clf()
     pos = nx.spring_layout(graph)
-    plt.figure(figsize = (15,10))
+    plt.figure(figsize = (15, 10))
     if root_node:
         color_map = []
-        size_map  = []
+        size_map = []
         for node in graph:
-            if node == root_node :
+            if node == root_node:
                 color_map.append('yellow')
                 size_map.append(300)
             else: 
                 color_map.append('red')
-                size_map.append(70)
-        nx.draw(graph, pos, with_labels = node_labels, node_shape = '.', node_size = size_map, width=0.2, node_color = color_map)
+                size_map.append(100)
+        nx.draw(graph, pos, with_labels = node_labels, node_shape = '.', node_size = size_map, width = 0.2, node_color = color_map)
     else:
-        nx.draw(graph, pos, with_labels = node_labels, node_shape = '.', node_size = 70, width=0.2)
+        nx.draw(graph, pos, with_labels = node_labels, node_shape = '.', width = 0.2)
     if edge_labels:
         nx.draw_networkx_edge_labels(graph, pos, edge_labels = nx.get_edge_attributes(graph, 'weight'))
-        
-        
     plt.show()
 
 def visualize_histogram(values_list, title):
     '''This function draws the histogram'''
     plt.clf()
     plt.figure()
-    sns.set(style="darkgrid")
+    sns.set(style = "darkgrid")
     plt.hist(values_list, color = 'dodgerblue')
     plt.title(title)
     plt.xlabel(title)
@@ -160,8 +160,8 @@ def visualize_histogram(values_list, title):
 '''---FUNCTIONS FOR PROBLEM 3---'''
 
 def shortest_path(graph, source, target):
-    '''This function takes in input a graph, a source node, a target node and returns the sum of the weigths that
-    minimizes the path from the source node to the target node'''
+    '''This function takes in input a graph, a source node, a target node and returns the minimum sum of the weigths
+    for the path from the source node to the target node (Dijkstra algorithm)'''
     # since the graph is undirected it is better to start from the node that has the minimum degree
     # between the source node and the target node
     if len(graph[target]) < len(graph[source]):
@@ -196,9 +196,10 @@ def group_number(graph, nodes_set):
     '''This function takes in input a graph, a set/list of nodes and returns the dictionary of the shortest paths
     which contains all the nodes of the graph as keys and the shortest path from u to the other nodes of the graph
     as values, for each u in nodes_set'''
-    #shortest_path contains a pair (distance, nearest node)
+    #the dictionary of the shortest paths contains the pairs (distance, nearest_root_node), where
+    #nearest_root_node is one of the nodes in nodes_set
     shortest_path = {}
-    for node in graph.nodes():
+    for node in graph:
         shortest_path[node] = (float('inf'), None)
     for root_node in nodes_set:
         print('Updating shortest paths from node:', root_node)
