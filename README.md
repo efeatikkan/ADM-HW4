@@ -37,7 +37,7 @@ closeness and betweeness) are calculated and visualized using histograms.
 <b>2.4</b>: Given a graph, author id and an integer(d), a subgraph which contains the nodes that are
 at most d hop-distance far from given auther id is created and viusalized.(graph_distance function).
 
-## 3: Functions in modules.py
+## 3: Functions in <i>modules.py</i>
 
 In the modules.py following functions are written:
 
