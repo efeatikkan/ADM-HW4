@@ -39,7 +39,7 @@ json file) and it opens the file.
 <b>3.2: <i>_get_publications(pub_dict)</i></b><br/>
 Using the loaded file, this function returns a dictionary with  key =  author_id and value = list of publication_ids.
 
-<b>3.3</b>: <i>_jaccard_similarity(pubs_author_1, pubs_author_2)</i></b><br/>
+<b>3.3: <i>_jaccard_similarity(pubs_author_1, pubs_author_2)</i></b><br/>
 The function takes as input publications of two given authors and returns their jaccard similarity.
 
 <b>3.4: <i>_get_authors_graph(file, pubs)</i></b><br/>
