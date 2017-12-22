@@ -1,6 +1,5 @@
 # Fourth homework of "Algorithmic Methods of Data Mining and Laboratory"
-Dealing with networks using dblp dataset
-<br/>
+Dealing with networks using DBLP dataset.
 
 ## Group 16
 * Emanuele Alessi
