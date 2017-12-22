@@ -14,11 +14,13 @@ the authors.
 
 <b>2: PROCEDURES IN EXERCISE 2</b>
 
-<b>2.1</b>: A conference dictionary is created where eahc conference id represents the keys and 
+<b>2.1</b>: A conference dictionary is created where each conference id represents the keys and 
 the list of authors id who involved in that conference is the value.
 
 <b>2.2</b>: Given a specific conference id a subgraph is created as follow:
+
 	-Using the conference dictionary, author ids of the authors who attended are identified
+	
 	-Using networkx subgraph function we created a subgraph induced by list of authors id
 
 <b>2.3</b>: Using this subgraph and necessary functions from networkx, some measures(degree,
