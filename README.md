@@ -77,7 +77,7 @@ This function takes in input a graph and returns a tuple with
     - the third item is the closeness of the graph
 
 <b>3.9 <i>graph_distance(graph, author_id, d)</i></b><br/>
-This function creates a subgraph as described in c_4 point. Breadth First Search(BFS) is implemented to visit efficiently  all nodes which are at most at distance d.
+This function creates a subgraph as described in 2.4 point. Breadth First Search(BFS) is implemented to visit efficiently  all nodes which are at most at distance d.
 
 <b>3.10 <i>visualize_graph(graph, node_labels = True, edge_labels = True, root_node = None)</i></b><br/>
 This function draws the graph.
