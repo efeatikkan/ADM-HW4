@@ -20,7 +20,7 @@ en edge.
 <b>1.4</b> Weight is given to the edges according to jaccard similarity between publications of
 the authors.
 
-## 2: Procedures in exercise 2
+## 2. Procedures in exercise 2
 
 <b>2.1</b> A conference dictionary is created where each conference id represents the keys and 
 the list of authors id who involved in that conference is the value.
@@ -37,7 +37,7 @@ closeness and betweeness) are calculated and visualized using histograms.
 <b>2.4</b> Given a graph, author id and an integer(d), a subgraph which contains the nodes that are
 at most d hop-distance far from given auther id is created and viusalized.(graph_distance function).
 
-## 3: Functions in <i>modules.py</i>
+## 3. Functions in <i>modules.py</i>
 
 In the modules.py following functions are written:
 
