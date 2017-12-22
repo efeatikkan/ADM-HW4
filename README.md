@@ -6,11 +6,10 @@ Dealing with networks using dblp dataset
 * Emanuele Alessi
 * Efe Atikkan
 * Sara Spadaccini
-<br/>
 
 ## 1: Procedures in exercise 1
 
-<b>1.1</b>: Full or/and reduced file is loaded
+<b>1.1</b>: Full or/and reduced file is loaded.
 
 <b>1.2</b>: Format of the data is changed. A dictionary is created where the key is the author_id and the
 value is the publication id.
@@ -21,7 +20,6 @@ en edge.
 
 <b>1.4</b>: Weight is given to the edges according to jaccard similarity between publications of
 the authors.
-<br/>
 
 ## 2: Procedures in exercise 2
 
@@ -38,8 +36,7 @@ the list of authors id who involved in that conference is the value.
 closeness and betweeness) are calculated and visualized using histograms.
 
 <b>2.4</b>: Given a graph, author id and an integer(d), a subgraph which contains the nodes that are
-at most d hop-distance far from given auther id is created and viusalized.(graph_distance function)
-<br/>
+at most d hop-distance far from given auther id is created and viusalized.(graph_distance function).
 
 ## 3: Functions in modules.py
 
@@ -87,13 +84,13 @@ This function creates a subgraph as described in c_4 point. Breadth First Search
 This function draws the graph.
 
 <b>3.11: <i>visualize_histogram(values_list, title)</i></b><br/>
-This function draws the histogram (usefull for plotting the degree, closness and betweness histograms)
+This function draws the histogram (usefull for plotting the degree, closness and betweness histograms).
 
 <b>3.12: <i>shortest_path(graph, source, target)</i></b><br/>
 This function takes in input a graph, a source node, a target node and 
-returns the minimum sum of the weigths for the path from the source node to the target node (Dijkstra algorithm)
+returns the minimum sum of the weigths for the path from the source node to the target node (Dijkstra algorithm).
 
 <b>3.13: <i>group_number(graph, nodes_set)</i></b><br/>
 This function takes in input a graph, a set/list of nodes and returns the  dictionary of the shortest paths which contains all 
-the nodes of the graph as keys and the shortest path from u to the other nodes of the graph as values, for each u in nodes_set
+the nodes of the graph as keys and the shortest path from u to the other nodes of the graph as values, for each u in nodes_set.
   
