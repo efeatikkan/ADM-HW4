@@ -1,11 +1,12 @@
 # Fourth homework of "Algorithmic Methods of Data Mining and Laboratory"
+<br/>
 
 ## Group 16
 * Emanuele Alessi
 * Efe Atikkan
 * Sara Spadaccini
 
-<b>1: PROCEDURES IN EXERCISE 1</b>
+## 1: Procedures in exercise 1
 
 <b>1.1</b>: Full or/and reduced file is loaded
 
@@ -19,7 +20,7 @@ en edge.
 <b>1.4</b>: Weight is given to the edges according to jaccard similarity between publications of
 the authors.
 
-<b>2: PROCEDURES IN EXERCISE 2</b>
+## 2: Procedures in exercise 2
 
 <b>2.1</b>: A conference dictionary is created where each conference id represents the keys and 
 the list of authors id who involved in that conference is the value.
@@ -37,7 +38,7 @@ closeness and betweeness) are calculated and visualized using histograms.
 at most d hop-distance far from given auther id is created and viusalized.(graph_distance function)
 
 
-<b>3: FUNCTIONS IN modules.py</b>
+## 3: Functions in modules.py
 
 In the modules.py following functions are written:
 
