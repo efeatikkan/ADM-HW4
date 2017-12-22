@@ -1,3 +1,10 @@
+# Fourth homework of "Algorithmic Methods of Data Mining and Laboratory"
+
+## Group 16
+* Emanuele Alessi
+* Efe Atikkan
+* Sara Spadaccini
+
 <b>1: PROCEDURES IN EXERCISE 1</b>
 
 <b>1.1</b>: Full or/and reduced file is loaded
