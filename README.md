@@ -1,10 +1,12 @@
 # Fourth homework of "Algorithmic Methods of Data Mining and Laboratory"
+Dealing with networks using dblp dataset
 <br/>
 
 ## Group 16
 * Emanuele Alessi
 * Efe Atikkan
 * Sara Spadaccini
+<br/>
 
 ## 1: Procedures in exercise 1
 
@@ -19,6 +21,7 @@ en edge.
 
 <b>1.4</b>: Weight is given to the edges according to jaccard similarity between publications of
 the authors.
+<br/>
 
 ## 2: Procedures in exercise 2
 
@@ -36,7 +39,7 @@ closeness and betweeness) are calculated and visualized using histograms.
 
 <b>2.4</b>: Given a graph, author id and an integer(d), a subgraph which contains the nodes that are
 at most d hop-distance far from given auther id is created and viusalized.(graph_distance function)
-
+<br/>
 
 ## 3: Functions in modules.py
 
