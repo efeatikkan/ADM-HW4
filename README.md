@@ -62,8 +62,11 @@ a conference id. It returns a subgraph where nodes a authors id who participated
 <b>3.8: <i>get_centralities(subgraph)</i></b><br/>
 This function takes in input a graph and returns a tuple with
 	 3 items:
+	 
     - the first item is the degree of the graph
+    
     - the second item is the betweenness of the graph
+    
     - the third item is the closeness of the graph
 
 <b>3.9: <i>graph_distance(graph, author_id, d)</i></b><br/>
